@@ -25,3 +25,8 @@ async def update_todo(id: str, todo: Todo):
     tododict = dict(todo)
     collection_name.find_one_and_update({"_id": ObjectId(id)}, {"$set": tododict})
     return tododict
+
+
+@router.delete("/{id}")
+async def delete_todo(id: str):
+    collection_name.delete_one({"_id": ObjectId(id)})
