@@ -30,3 +30,4 @@ async def update_todo(id: str, todo: Todo):
 @router.delete("/{id}")
 async def delete_todo(id: str):
     collection_name.delete_one({"_id": ObjectId(id)})
+    return {"deleted": True}
